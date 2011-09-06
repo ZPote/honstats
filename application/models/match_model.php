@@ -524,17 +524,21 @@ class Match_Model extends CI_Model
         $imgs = $html->find('img.item_icon');
         
         $out = '';
-        for($i = 0; $i < 3; $i++)
+		
+		/**
+		 * WTF?!?
+		 */
+        for($i = 0; $i < 6; $i++)
         {
-            $str = explode('/', $imgs[$i]->src);
-            $out .= '<img src="'.img_url('items/'.$str[5]).'"/>';
+            //$str = explode('/', $imgs[$i]->src);
+            $out .= '<img src="'.img_url('items/'.basename($imgs[$i]->src)).'"/>';
         }
         
-        for($i = 3; $i < 6; $i++)
+        /** for($i = 3; $i < 6; $i++)
         {
             $str = explode('/', $imgs[$i]->src);
             $out .= '<img src="'.img_url('items/'.$str[5]).'"/>';
-        }
+        } */
         
         return $out;
     }

@@ -16,9 +16,9 @@ class Match extends CI_Controller
     {
         $this->output->cache(72000);
         
-        $data['nick'] = $nick;
         $this->layout->setTitle("HoN Stats")
-                     ->contentAdd('home', $data)
+                     ->contentAdd('home', array(
+					 'nick' => $nick))
                      ->display();
     }
     
